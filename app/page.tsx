@@ -449,19 +449,20 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* ALTERAÇÃO AQUI: Grid estrito para manter proporções iguais e nunca encostar nas bordas */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 w-full max-w-md lg:max-w-none mx-auto">
+          {/* AQUI ESTÁ A SOLUÇÃO DEFINITIVA: flex-col com items-center e larguras restritas no mobile para nunca encostar nas bordas */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-12 w-full">
 
+            {/* CARD ENDEREÇO E HORÁRIOS */}
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" } as any}
-              className="bg-white p-8 rounded-[2rem] border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center lg:items-start text-center lg:text-left w-full"
+              className="w-[90%] sm:w-full max-w-sm lg:max-w-none lg:w-1/2 bg-white p-8 rounded-[2rem] border border-sueli-teal/10 shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex flex-col items-center lg:items-start text-center lg:text-left"
             >
 
               {/* Seção Endereço */}
-              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 w-full border-b border-sueli-teal/10 pb-8 mb-8">
+              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 w-full border-b border-sueli-teal/10 pb-8 mb-8">
                 <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6 text-sueli-rose" />
                 </div>
@@ -498,15 +499,15 @@ export default function Home() {
 
             </motion.div>
 
-            {/* Seção Mapa */}
+            {/* MAPA */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 } as any}
-              className="w-full h-[400px] sm:h-[450px] lg:h-full lg:min-h-[500px]"
+              className="w-[90%] sm:w-full max-w-sm lg:max-w-none lg:w-1/2 h-[350px] sm:h-[400px] lg:h-auto lg:min-h-[480px]"
             >
-              <div className="w-full h-full rounded-[2rem] overflow-hidden border-[3px] border-sueli-teal/10 shadow-[0_8px_30px_rgba(0,0,0,0.05)] bg-[#F7FBFB]">
+              <div className="w-full h-full rounded-[2rem] overflow-hidden border-[3px] border-sueli-teal/10 shadow-[0_8px_30px_rgba(0,0,0,0.06)] bg-[#F7FBFB]">
                 <iframe
                   src="https://maps.google.com/maps?q=Av.%20Darcí%20Viêira,%201904%20-%20Centro,%20Itapetininga%20-%20SP,%2018200-310&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
