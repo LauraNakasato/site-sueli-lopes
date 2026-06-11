@@ -28,7 +28,7 @@ const InstagramIcon = ({ size = 24, className = "", strokeWidth = 1.5 }) => (
   </svg>
 );
 
-// Dados dos posts do Instagram com as URLs limpas (sem os rastreadores ?igsh=)
+// Dados dos posts do Instagram com as URLs limpas
 const instagramPosts = [
   { id: 1, image: "/insta1.jpg", link: "https://www.instagram.com/p/DYSSab0EVhY/" },
   { id: 2, image: "/insta2.jpg", link: "https://www.instagram.com/p/DY2Yuahka55/" },
@@ -223,7 +223,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" } as any}
-              className="order-1 lg:hidden"
+              className="order-1 lg:hidden text-center flex flex-col items-center"
             >
               <div className="w-12 h-1.5 bg-sueli-rose rounded-full mb-6 shadow-sm"></div>
               <h2 className="text-3xl md:text-4xl font-bold text-sueli-teal mb-4 tracking-tight leading-tight">Muito prazer, <span className="text-sueli-rose">sou Sueli Lopes.</span></h2>
@@ -254,7 +254,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 } as any}
-              className="order-3 lg:order-2"
+              className="order-3 lg:order-2 text-center lg:text-left flex flex-col items-center lg:items-start"
             >
               <div className="hidden lg:block">
                 <div className="w-12 h-1.5 bg-sueli-rose rounded-full mb-8 shadow-sm"></div>
@@ -262,7 +262,7 @@ export default function Home() {
                 <h3 className="text-sm font-bold text-sueli-teal/70 mb-8 uppercase tracking-[0.2em]">Psicóloga Clínica • CRP 06/87929</h3>
               </div>
 
-              <div className="space-y-6 text-foreground/80 font-light leading-relaxed text-lg">
+              <div className="space-y-6 text-foreground/80 font-light leading-relaxed text-lg max-w-lg lg:max-w-none">
                 <p>Acredito que a terapia é um espaço sagrado de reencontro consigo mesmo. Com mais de 20 anos de experiência clínica, dedico minha trajetória a oferecer uma escuta atenta, ética e profundamente humana.</p>
                 <p>Meu objetivo não é apenas tratar sintomas, mas caminhar ao seu lado na construção de uma vida mais leve, com significado e alinhada à sua verdadeira essência.</p>
                 <p>Seja bem-vindo(a) a um ambiente seguro, livre de julgamentos e totalmente preparado para acolher a sua história em qualquer fase da vida.</p>
@@ -449,23 +449,25 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* ALTERAÇÃO AQUI: max-w-md mx-auto adicionado para manter o bloco centralizado no mobile */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-md mx-auto lg:max-w-none">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center lg:items-start max-w-lg mx-auto lg:max-w-none">
+
+            {/* Bloco de Informações 100% Centralizado no Mobile */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" } as any}
-              className="bg-white p-8 lg:p-10 rounded-[2rem] border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col space-y-10"
+              className="bg-white p-8 lg:p-10 rounded-[2rem] border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center lg:items-start text-center lg:text-left space-y-10 w-full"
             >
-              {/* ENDEREÇO - Alterado para centralizar no celular */}
-              <div className="flex flex-col md:flex-row gap-6 items-center text-center md:items-start md:text-left border-b border-sueli-teal/10 pb-8">
-                <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0 mx-auto md:mx-0">
+
+              {/* Seção Endereço */}
+              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 w-full border-b border-sueli-teal/10 pb-8">
+                <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6 text-sueli-rose" />
                 </div>
-                <div>
+                <div className="flex flex-col items-center lg:items-start">
                   <h3 className="text-xl font-bold text-sueli-teal mb-2">Endereço</h3>
-                  <p className="text-foreground/80 leading-relaxed">
+                  <p className="text-foreground/80 leading-relaxed text-center lg:text-left">
                     Av. Darcí Viêira, 1904 - Centro<br />
                     Itapetininga - SP<br />
                     CEP: 18200-310
@@ -473,16 +475,17 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* HORÁRIOS - Alterado para centralizar no celular */}
-              <div>
-                <div className="flex flex-col md:flex-row items-center text-center md:items-start md:text-left gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0 mx-auto md:mx-0">
+              {/* Seção Horários */}
+              <div className="w-full flex flex-col items-center lg:items-start">
+                <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0">
                     <Clock className="w-6 h-6 text-sueli-rose" />
                   </div>
-                  <h3 className="text-xl font-bold text-sueli-teal md:mt-2">Horário de Atendimento</h3>
+                  <h3 className="text-xl font-bold text-sueli-teal mt-2 lg:mt-0 lg:pt-2">Horário de Atendimento</h3>
                 </div>
 
-                <div className="space-y-4 w-full max-w-sm mx-auto md:max-w-none md:mx-0">
+                {/* Container estreito no mobile para centralizar a lista */}
+                <div className="space-y-4 w-full max-w-[300px] lg:max-w-none mx-auto lg:mx-0">
                   {operatingHours.map((schedule, index) => (
                     <div key={index} className="flex justify-between items-center border-b border-gray-100 pb-3 last:border-0 last:pb-0">
                       <span className="text-foreground/70 font-medium">{schedule.day}</span>
@@ -493,21 +496,23 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+
             </motion.div>
 
+            {/* Bloco do Mapa Centralizado no Mobile */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 } as any}
-              className="h-full min-h-[400px]"
+              className="w-full h-[400px] sm:h-[450px] lg:h-full lg:min-h-[500px]"
             >
               <div className="w-full h-full rounded-[2rem] overflow-hidden border-[3px] border-sueli-teal/10 shadow-[0_8px_30px_rgba(0,0,0,0.05)] bg-[#F7FBFB]">
                 <iframe
                   src="https://maps.google.com/maps?q=Av.%20Darcí%20Viêira,%201904%20-%20Centro,%20Itapetininga%20-%20SP,%2018200-310&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
-                  style={{ border: 0, minHeight: '400px' }}
+                  style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -524,11 +529,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
 
-            <div className="md:col-span-5 flex flex-col items-start">
-              <span className="text-sueli-rose text-xs font-bold tracking-[0.2em] uppercase mb-6 block">
+            <div className="md:col-span-5 flex flex-col items-start text-center md:text-left mx-auto md:mx-0">
+              <span className="text-sueli-rose text-xs font-bold tracking-[0.2em] uppercase mb-6 block mx-auto md:mx-0">
                 CRP 06/87929
               </span>
-              <div className="flex items-center gap-4 mb-6">
+              <div className="flex items-center gap-4 mb-6 justify-center md:justify-start w-full">
                 <Image
                   src="/logo.png"
                   alt="Sueli Lopes Psicóloga"
@@ -536,13 +541,13 @@ export default function Home() {
                   height={110}
                   className="object-contain h-24 w-auto"
                 />
-                <div>
+                <div className="text-left">
                   <h3 className="text-sueli-teal font-bold text-lg leading-tight">Sueli Lopes</h3>
                   <p className="text-sueli-rose text-xs uppercase tracking-widest">Psicóloga Clínica</p>
                 </div>
               </div>
 
-              <p className="text-foreground/80 font-medium leading-relaxed mb-8 max-w-sm">
+              <p className="text-foreground/80 font-medium leading-relaxed mb-8 max-w-sm mx-auto md:mx-0">
                 Acolhimento humanizado e escuta ativa para te ajudar a ressignificar sua história e encontrar o equilíbrio emocional.
               </p>
 
@@ -550,14 +555,14 @@ export default function Home() {
                 onClick={() => window.open(whatsappLink, '_blank')}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
-                className="bg-sueli-rose hover:bg-sueli-teal text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-sm flex items-center gap-3"
+                className="bg-sueli-rose hover:bg-sueli-teal text-white px-8 py-3.5 rounded-full text-sm font-bold uppercase tracking-widest transition-all duration-300 shadow-sm flex items-center justify-center gap-3 w-full sm:w-auto"
               >
                 Agendar Consulta
                 <Calendar className="w-4 h-4" strokeWidth={2} />
               </motion.button>
             </div>
 
-            <div className="md:col-span-3">
+            <div className="md:col-span-3 text-center md:text-left">
               <h4 className="text-sueli-rose text-xs font-bold tracking-[0.2em] uppercase mb-6">Navegação</h4>
               <ul className="space-y-4 text-foreground/80 font-medium">
                 <li><a href="#inicio" className="hover:text-sueli-teal transition-colors">Início</a></li>
@@ -569,9 +574,9 @@ export default function Home() {
               </ul>
             </div>
 
-            <div className="md:col-span-4">
+            <div className="md:col-span-4 text-center md:text-left">
               <h4 className="text-sueli-rose text-xs font-bold tracking-[0.2em] uppercase mb-6">Contato</h4>
-              <ul className="space-y-5 text-foreground/80 font-medium">
+              <ul className="space-y-5 text-foreground/80 font-medium inline-block text-left">
                 <li>
                   <a href="mailto:suelilopespsicologa@gmail.com" className="flex items-center gap-3 hover:text-sueli-teal transition-colors">
                     <Mail className="w-5 h-5 text-sueli-rose shrink-0" />
