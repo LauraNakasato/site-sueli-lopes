@@ -119,11 +119,13 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-sueli-rose-light/15 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center z-10">
+
+          {/* TEXTO - Com order-2 para ficar embaixo no celular, e lg:order-1 para a esquerda no PC */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 } as any}
-            className="flex flex-col items-center text-center lg:items-start lg:text-left"
+            className="order-2 lg:order-1 flex flex-col items-center text-center lg:items-start lg:text-left"
           >
             <div className="w-16 h-1.5 bg-sueli-rose rounded-full mb-8 shadow-sm"></div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-[4rem] font-bold text-sueli-teal mb-4 leading-[1.15] tracking-tight max-w-2xl text-balance">
@@ -141,11 +143,12 @@ export default function Home() {
             </motion.button>
           </motion.div>
 
+          {/* IMAGEM - Com order-1 para ficar no topo no celular, e lg:order-2 para a direita no PC */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.4 } as any}
-            className="relative flex justify-center lg:justify-end mt-8 lg:mt-0"
+            className="order-1 lg:order-2 relative flex justify-center lg:justify-end mb-4 lg:mb-0 lg:mt-0"
           >
             <div className="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] lg:w-[400px] lg:h-[400px] xl:w-[460px] xl:h-[460px] group">
               <div className="absolute inset-0 bg-white/40 backdrop-blur-md border-[3px] border-sueli-rose shadow-xl rounded-full overflow-hidden transition-all duration-500 group-hover:bg-white/60">
@@ -216,7 +219,6 @@ export default function Home() {
       <section id="sobre" className="py-24 lg:py-32 relative bg-[#F7FBFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Foto (div que vem primeiro) */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -236,7 +238,6 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Texto (div que vem depois) */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
