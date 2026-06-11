@@ -216,11 +216,13 @@ export default function Home() {
       <section id="sobre" className="py-24 lg:py-32 relative bg-[#F7FBFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Foto (div que vem primeiro) */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" } as any}
+              className="order-1 lg:order-1"
             >
               <div className="relative w-full max-w-md mx-auto aspect-[4/5] rounded-[2rem] border-[3px] border-sueli-rose bg-white shadow-[0_8px_30px_rgba(76,161,155,0.1)] overflow-hidden group">
                 <Image
@@ -234,11 +236,13 @@ export default function Home() {
               </div>
             </motion.div>
 
+            {/* Texto (div que vem depois) */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 } as any}
+              className="order-2 lg:order-2"
             >
               <div className="w-12 h-1.5 bg-sueli-rose rounded-full mb-8 shadow-sm"></div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-sueli-teal mb-4 tracking-tight leading-tight">Muito prazer, <br className="hidden lg:block" /><span className="text-sueli-rose">sou Sueli Lopes.</span></h2>
