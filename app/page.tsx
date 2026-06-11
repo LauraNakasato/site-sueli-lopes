@@ -28,7 +28,7 @@ const InstagramIcon = ({ size = 24, className = "", strokeWidth = 1.5 }) => (
   </svg>
 );
 
-// Dados dos posts do Instagram com as URLs limpas (sem os rastreadores ?igsh=)
+// Dados dos posts do Instagram com as URLs limpas
 const instagramPosts = [
   { id: 1, image: "/insta1.jpg", link: "https://www.instagram.com/p/DYSSab0EVhY/" },
   { id: 2, image: "/insta2.jpg", link: "https://www.instagram.com/p/DY2Yuahka55/" },
@@ -449,23 +449,25 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* ALTERAÇÃO AQUI: Substituição completa do "grid" por "flex" para garantir o alinhamento 100% igual no mobile */}
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 w-full items-stretch">
+          {/* ALTERAÇÃO AQUI: Grid estrito para manter proporções iguais e nunca encostar nas bordas */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 w-full max-w-md lg:max-w-none mx-auto">
 
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" } as any}
-              className="bg-white p-8 lg:p-10 rounded-[2rem] border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center lg:items-start text-center lg:text-left space-y-10 w-full lg:w-1/2"
+              className="bg-white p-8 rounded-[2rem] border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col items-center lg:items-start text-center lg:text-left w-full"
             >
-              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 w-full border-b border-sueli-teal/10 pb-8">
-                <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0 mx-auto md:mx-0">
+
+              {/* Seção Endereço */}
+              <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 w-full border-b border-sueli-teal/10 pb-8 mb-8">
+                <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0">
                   <MapPin className="w-6 h-6 text-sueli-rose" />
                 </div>
                 <div className="flex flex-col items-center lg:items-start w-full">
                   <h3 className="text-xl font-bold text-sueli-teal mb-2">Endereço</h3>
-                  <p className="text-foreground/80 leading-relaxed text-center lg:text-left">
+                  <p className="text-foreground/80 leading-relaxed">
                     Av. Darcí Viêira, 1904 - Centro<br />
                     Itapetininga - SP<br />
                     CEP: 18200-310
@@ -473,33 +475,36 @@ export default function Home() {
                 </div>
               </div>
 
+              {/* Seção Horários */}
               <div className="w-full flex flex-col items-center lg:items-start">
                 <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0 mx-auto md:mx-0">
+                  <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0">
                     <Clock className="w-6 h-6 text-sueli-rose" />
                   </div>
-                  <h3 className="text-xl font-bold text-sueli-teal mt-2 lg:mt-0 lg:pt-2">Horário de Atendimento</h3>
+                  <h3 className="text-xl font-bold text-sueli-teal lg:pt-2">Horário de Atendimento</h3>
                 </div>
 
-                <div className="space-y-4 w-full">
+                <div className="space-y-4 w-full max-w-[280px] lg:max-w-none">
                   {operatingHours.map((schedule, index) => (
                     <div key={index} className="flex justify-between items-center border-b border-gray-100 pb-3 last:border-0 last:pb-0">
-                      <span className="text-foreground/70 font-medium">{schedule.day}</span>
-                      <span className={`font-semibold ${schedule.hours === "Fechado" ? "text-sueli-rose" : "text-sueli-teal"}`}>
+                      <span className="text-foreground/70 font-medium text-left">{schedule.day}</span>
+                      <span className={`font-semibold text-right ${schedule.hours === "Fechado" ? "text-sueli-rose" : "text-sueli-teal"}`}>
                         {schedule.hours}
                       </span>
                     </div>
                   ))}
                 </div>
               </div>
+
             </motion.div>
 
+            {/* Seção Mapa */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 } as any}
-              className="w-full lg:w-1/2 h-[400px] sm:h-[450px] lg:h-auto min-h-[400px]"
+              className="w-full h-[400px] sm:h-[450px] lg:h-full lg:min-h-[500px]"
             >
               <div className="w-full h-full rounded-[2rem] overflow-hidden border-[3px] border-sueli-teal/10 shadow-[0_8px_30px_rgba(0,0,0,0.05)] bg-[#F7FBFB]">
                 <iframe
