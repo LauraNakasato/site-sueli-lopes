@@ -120,7 +120,6 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center z-10">
 
-          {/* TEXTO - Com order-2 para ficar embaixo no celular, e lg:order-1 para a esquerda no PC */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -143,7 +142,6 @@ export default function Home() {
             </motion.button>
           </motion.div>
 
-          {/* IMAGEM - Com order-1 para ficar no topo no celular, e lg:order-2 para a direita no PC */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -182,7 +180,7 @@ export default function Home() {
           </motion.div>
 
           <motion.div variants={containerVariants} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-50px" }} className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-            <motion.div variants={itemVariants} className="group bg-white rounded-[2rem] p-8 lg:p-10 border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(76,161,155,0.08)] transition-all duration-500 hover:-translate-y-2 flex flex-col">
+            <motion.div variants={itemVariants} className="group bg-white rounded-[2rem] p-8 lg:p-10 border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(76,161,155,0.08)] transition-all duration-500 hover:-translate-y-2 flex flex-col items-center text-center md:items-start md:text-left">
               <div className="w-16 h-16 rounded-2xl bg-[#FDF0F0] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                 <Heart className="w-8 h-8 text-sueli-rose" strokeWidth={1.5} />
               </div>
@@ -192,7 +190,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="group bg-white rounded-[2rem] p-8 lg:p-10 border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(76,161,155,0.08)] transition-all duration-500 hover:-translate-y-2 flex flex-col">
+            <motion.div variants={itemVariants} className="group bg-white rounded-[2rem] p-8 lg:p-10 border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(76,161,155,0.08)] transition-all duration-500 hover:-translate-y-2 flex flex-col items-center text-center md:items-start md:text-left">
               <div className="w-16 h-16 rounded-2xl bg-[#FDF0F0] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                 <Compass className="w-8 h-8 text-sueli-rose" strokeWidth={1.5} />
               </div>
@@ -202,7 +200,7 @@ export default function Home() {
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="group bg-white rounded-[2rem] p-8 lg:p-10 border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(76,161,155,0.08)] transition-all duration-500 hover:-translate-y-2 flex flex-col">
+            <motion.div variants={itemVariants} className="group bg-white rounded-[2rem] p-8 lg:p-10 border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(76,161,155,0.08)] transition-all duration-500 hover:-translate-y-2 flex flex-col items-center text-center md:items-start md:text-left">
               <div className="w-16 h-16 rounded-2xl bg-[#FDF0F0] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                 <Sparkles className="w-8 h-8 text-sueli-rose" strokeWidth={1.5} />
               </div>
@@ -218,13 +216,26 @@ export default function Home() {
       {/* 3. Sobre Mim */}
       <section id="sobre" className="py-24 lg:py-32 relative bg-[#F7FBFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: "easeOut" } as any}
+              className="order-1 lg:hidden"
+            >
+              <div className="w-12 h-1.5 bg-sueli-rose rounded-full mb-6 shadow-sm"></div>
+              <h2 className="text-3xl md:text-4xl font-bold text-sueli-teal mb-4 tracking-tight leading-tight">Muito prazer, <span className="text-sueli-rose">sou Sueli Lopes.</span></h2>
+              <h3 className="text-sm font-bold text-sueli-teal/70 uppercase tracking-[0.2em]">Psicóloga Clínica • CRP 06/87929</h3>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut" } as any}
-              className="order-1 lg:order-1"
+              className="order-2 lg:order-1"
             >
               <div className="relative w-full max-w-md mx-auto aspect-[4/5] rounded-[2rem] border-[3px] border-sueli-rose bg-white shadow-[0_8px_30px_rgba(76,161,155,0.1)] overflow-hidden group">
                 <Image
@@ -243,11 +254,13 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 } as any}
-              className="order-2 lg:order-2"
+              className="order-3 lg:order-2"
             >
-              <div className="w-12 h-1.5 bg-sueli-rose rounded-full mb-8 shadow-sm"></div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-sueli-teal mb-4 tracking-tight leading-tight">Muito prazer, <br className="hidden lg:block" /><span className="text-sueli-rose">sou Sueli Lopes.</span></h2>
-              <h3 className="text-sm font-bold text-sueli-teal/70 mb-8 uppercase tracking-[0.2em]">Psicóloga Clínica • CRP 06/87929</h3>
+              <div className="hidden lg:block">
+                <div className="w-12 h-1.5 bg-sueli-rose rounded-full mb-8 shadow-sm"></div>
+                <h2 className="text-4xl lg:text-5xl font-bold text-sueli-teal mb-4 tracking-tight leading-tight">Muito prazer, <br /><span className="text-sueli-rose">sou Sueli Lopes.</span></h2>
+                <h3 className="text-sm font-bold text-sueli-teal/70 mb-8 uppercase tracking-[0.2em]">Psicóloga Clínica • CRP 06/87929</h3>
+              </div>
 
               <div className="space-y-6 text-foreground/80 font-light leading-relaxed text-lg">
                 <p>Acredito que a terapia é um espaço sagrado de reencontro consigo mesmo. Com mais de 20 anos de experiência clínica, dedico minha trajetória a oferecer uma escuta atenta, ética e profundamente humana.</p>
@@ -436,7 +449,8 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* ALTERAÇÃO AQUI: max-w-md mx-auto adicionado para manter o bloco centralizado no mobile */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start max-w-md mx-auto lg:max-w-none">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -444,8 +458,9 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" } as any}
               className="bg-white p-8 lg:p-10 rounded-[2rem] border border-sueli-teal/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col space-y-10"
             >
-              <div className="flex flex-col md:flex-row gap-6 items-start border-b border-sueli-teal/10 pb-8">
-                <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0">
+              {/* ENDEREÇO - Alterado para centralizar no celular */}
+              <div className="flex flex-col md:flex-row gap-6 items-center text-center md:items-start md:text-left border-b border-sueli-teal/10 pb-8">
+                <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0 mx-auto md:mx-0">
                   <MapPin className="w-6 h-6 text-sueli-rose" />
                 </div>
                 <div>
@@ -458,15 +473,16 @@ export default function Home() {
                 </div>
               </div>
 
+              {/* HORÁRIOS - Alterado para centralizar no celular */}
               <div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0">
+                <div className="flex flex-col md:flex-row items-center text-center md:items-start md:text-left gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-2xl bg-[#FDF0F0] flex items-center justify-center shrink-0 mx-auto md:mx-0">
                     <Clock className="w-6 h-6 text-sueli-rose" />
                   </div>
-                  <h3 className="text-xl font-bold text-sueli-teal">Horário de Atendimento</h3>
+                  <h3 className="text-xl font-bold text-sueli-teal md:mt-2">Horário de Atendimento</h3>
                 </div>
 
-                <div className="space-y-4">
+                <div className="space-y-4 w-full max-w-sm mx-auto md:max-w-none md:mx-0">
                   {operatingHours.map((schedule, index) => (
                     <div key={index} className="flex justify-between items-center border-b border-gray-100 pb-3 last:border-0 last:pb-0">
                       <span className="text-foreground/70 font-medium">{schedule.day}</span>
